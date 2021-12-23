@@ -12,18 +12,20 @@
     const bio=document.getElementById("bio")
     const ajouter=document.getElementById("ajouter")
 
-
-
+   
 
     
 
 //recuperation des donnees du formulaire
 schoolForm.addEventListener("submit",(e)=>{
     e.preventDefault()
+    
+
     let nomSaisi=nom.value
     let prenomSaisi=prenom.value
     let niveauSaisi=niveau.value
     let bioSaisie=bio.value
+
     verifier()
 
 
@@ -61,11 +63,16 @@ let newApp={
                         <h5 class="card-title">Prenom:${apprenante.prenomA}</h5>
                         <h5 class="card-title">niveau:${apprenante.niveauA}</h5>
                         <p class="card-text">${apprenante.bioA}</p>
-                       
+
+                        <button type="button" class="btn btn-outline-danger">Supprimer</button>
+                        <button type="button" class="btn btn-outline-warning">Modifier</button>
                         </div>
+                        
                     </div>
                     </div>
                     </div>
+
+                   
       
      `);
 
@@ -73,10 +80,35 @@ let newApp={
 
 
 function verifier() {
+
+    let nomSaisi=nom.value
+    let prenomSaisi=prenom.value
+    let niveauSaisi=niveau.value
+    let bioSaisie=bio.value
+
     console.log("Nom = " + nom.value);
     console.log("Prenom = " + prenom.value);
     console.log("Niveau = " +niveau.value);
-    console.log("Biographie = " + bio.value);  
+    console.log("Biographie = " + bio.value);
+
+    localStorage.setItem("nom",nomSaisi)
+    localStorage.setItem("prenom",prenomSaisi)
+    localStorage.setItem("niveau",niveauSaisi)
+    localStorage.setItem("bio", bioSaisie)
+
+    localStorage.getItem("nom")
+    localStorage.getItem("prenom")
+    localStorage.getItem("niveau")
+    localStorage.getItem("bio")
+
+
+
+
+    console.log(localStorage.getItem("nom"));
+    console.log(localStorage.getItem("prenom"));
+    console.log(localStorage.getItem("niveau"));
+    console.log(localStorage.getItem("bio"));
+
     
     
      // VERIFICATION DES MOTS SAISIS
