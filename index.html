@@ -20,11 +20,11 @@
                 <form method="post" action="index.html">
                     <div class="mb-3">
                     <label for="nom" class="form-label" >Nom</label>
-                    <input type="text" class="form-control" id="nom" name="" aria-describedby="NameHelp">
+                    <input type="text" class="form-control" id="nom" name="" aria-describedby="NameHelp" required>
                 
                     <div class="mb-3">
                     <label for="prenom" class="form-label">Prenom</label>
-                    <input type="text" class="form-control" id="prenom" name="">
+                    <input type="text" class="form-control" id="prenom" name="" required>
                     </div>
 
                     
@@ -37,8 +37,13 @@
 
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Biographie</label>
-                        <textarea class="form-control" id="bio" rows="3" name=""></textarea>
+                        <textarea class="form-control" id="bio" rows="3" name=""  required></textarea>
                     </div><br>
+                    <p id="limite-text">
+                        Contenu saisi
+                        <span id="text-progress">00 </span> / 130
+                    </p>
+                    <p id="text-restant"></p>
                     
                     <button type="submit" class="btn btn-primary btn-lg" id="ajouter">Ajouter</button>
                 </form>
