@@ -49,10 +49,16 @@ let newApp={
     
 
 })
+   
 
     const creerUneCarteApp = (apprenante) => {
+        const btnSuprimer = "btn_supprimer-" + apprenante.id
+        const btnModifier = "btn_modifier-" + apprenante.id
+        const btnCart="btn_cart-" + apprenante.id
+
+
         apprenantes.insertAdjacentHTML(  "afterend",`
-        <div class="card mb-3" style="max-width: 540px;">
+        <div class="card mb-3" style="max-width: 540px;" id="${btnCart}">
                     <div class="row g-0">
                     <div class="col-md-4">
                         <img src="src/img/img1.png" class="img-fluid rounded-start" alt="...">
@@ -64,8 +70,8 @@ let newApp={
                         <h5 class="card-title">niveau:${apprenante.niveauA}</h5>
                         <p class="card-text">${apprenante.bioA}</p>
 
-                        <button type="button" class="btn btn-outline-danger">Supprimer</button>
-                        <button type="button" class="btn btn-outline-warning">Modifier</button>
+                        <button type="button" class="btn btn-outline-danger" id="${btnSuprimer}">Supprimer</button>
+                        <button type="button" class="btn btn-outline-warning" id="${btnModifier}">Modifier</button>
                         </div>
                         
                     </div>
@@ -76,7 +82,26 @@ let newApp={
       
      `);
 
+
+     const supprimerBtn=document.getElementById(btnSuprimer)
+    const cartBtn=document.getElementById(btnCart)   
+//const modifierBtn=document.getElementById(btnModifier)
+
+
+    supprimerBtn.addEventListener("click",(e)=>{
+        e.preventDefault()
+        
+       let carte=cartBtn
+        carte.remove()
+    
+
+    }) 
+
+
+
    }  
+
+
 
 
 function verifier() {
@@ -86,10 +111,10 @@ function verifier() {
     let niveauSaisi=niveau.value
     let bioSaisie=bio.value
 
-    console.log("Nom = " + nom.value);
-    console.log("Prenom = " + prenom.value);
-    console.log("Niveau = " +niveau.value);
-    console.log("Biographie = " + bio.value);
+    // console.log("Nom = " + nom.value);
+    // console.log("Prenom = " + prenom.value);
+    // console.log("Niveau = " +niveau.value);
+    // console.log("Biographie = " + bio.value);
 
     localStorage.setItem("nom",nomSaisi)
     localStorage.setItem("prenom",prenomSaisi)
@@ -104,10 +129,10 @@ function verifier() {
 
 
 
-    console.log(localStorage.getItem("nom"));
-    console.log(localStorage.getItem("prenom"));
-    console.log(localStorage.getItem("niveau"));
-    console.log(localStorage.getItem("bio"));
+    // console.log(localStorage.getItem("nom"));
+    // console.log(localStorage.getItem("prenom"));
+    // console.log(localStorage.getItem("niveau"));
+    // console.log(localStorage.getItem("bio"));
 
     
     
@@ -141,9 +166,6 @@ function verifier() {
   })
 
 }
-
-
-
 
 
 
