@@ -13,6 +13,10 @@
     const ajouter=document.getElementById("ajouter")
 
    
+    let nomSaisi=nom.value
+    let prenomSaisi=prenom.value
+    let niveauSaisi=niveau.value
+    let bioSaisie=bio.value
 
     
 
@@ -56,7 +60,11 @@ let newApp={
         const btnModifier = "btn_modifier-" + apprenante.id
         const btnCart="btn_cart-" + apprenante.id
 
-
+        const oldNom="identifiant-" + apprenante.id
+        const oldPrenom="identifiant-" + apprenante.id
+        const oldNiveau="identifiant-" + apprenante.id
+        const oldBio="identifiant-" + apprenante.id
+        
         apprenantes.insertAdjacentHTML(  "afterend",`
         <div class="card mb-3" style="max-width: 540px;" id="${btnCart}">
                     <div class="row g-0">
@@ -65,10 +73,10 @@ let newApp={
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                        <h5 class="card-title">Nom:${apprenante.nomA}</h5>
-                        <h5 class="card-title">Prenom:${apprenante.prenomA}</h5>
-                        <h5 class="card-title">niveau:${apprenante.niveauA}</h5>
-                        <p class="card-text">${apprenante.bioA}</p>
+                        <h5 class="card-title" id=${oldNom}>Nom:${apprenante.nomA}</h5>
+                        <h5 class="card-titl" id=${oldPrenom}>Prenom:${apprenante.prenomA}</h5>
+                        <h5 class="card-titl" id=${oldNiveau}>niveau:${apprenante.niveauA}</h5>
+                        <p class="card-text" id=${oldBio}>biographie:${apprenante.bioA}</p>
 
                         <button type="button" class="btn btn-outline-danger" id="${btnSuprimer}">Supprimer</button>
                         <button type="button" class="btn btn-outline-warning" id="${btnModifier}">Modifier</button>
@@ -84,8 +92,13 @@ let newApp={
 
 
      const supprimerBtn=document.getElementById(btnSuprimer)
-    const cartBtn=document.getElementById(btnCart)   
-//const modifierBtn=document.getElementById(btnModifier)
+     const cartBtn=document.getElementById(btnCart)   
+     const modifierBtn=document.getElementById(btnModifier)
+
+  const ancienNom=document.getElementById(oldNom)
+  const ancienPrenom=document.getElementById(oldPrenom)
+  const ancienNiveau=document.getElementById(oldNiveau)
+  const ancienBio=document.getElementById(oldBio)
 
 
     supprimerBtn.addEventListener("click",(e)=>{
@@ -96,7 +109,47 @@ let newApp={
     
 
     }) 
+    modifierBtn.addEventListener("click",(e)=>{
+        e.preventDefault()
+        alert("on est le")
+        let nomMod = document.createElement('input')
+        nomMod.setAttribute("placeholder", "nom*")
+        cartBtn.appendChild(nomMod)
+        cartBtn.appendChild(ancienNom)
+       
 
+        let prenomMod=document.createElement('input')
+        prenomMod.setAttribute("placeholder", "prenom*")
+        cartBtn.appendChild(prenomMod)
+        cartBtn.appendChild(ancienPrenom)
+
+        //  let niveauMod=document.createElement('select')
+        //  niveauMod.setAttribute("select*")
+        //  cartBtn.appendChild(ancienNiveau)
+
+        let Biographie=document.createElement('textarea')
+       Biographie.setAttribute("placeholder", "texterea*")
+        cartBtn.appendChild(Biographie)
+
+        cartBtn.appendChild(ancienBio)
+        
+        
+        
+        
+        
+        let cartMod=cartBtn
+        console.log(cartMod);
+        cartMod.replaceChild(nomMod,ancienNom)
+        // cartMod.replaceChild(prenomMod,ancienPrenom)
+        // cartMod.replaceChild(niveauMod,ancienNiveau)
+        // cartMod.replaceChild(Biographie,ancienBio)
+
+
+       
+        
+        // console.log(cartMod);
+
+    }) 
 
 
    }  
@@ -111,10 +164,10 @@ function verifier() {
     let niveauSaisi=niveau.value
     let bioSaisie=bio.value
 
-    // console.log("Nom = " + nom.value);
-    // console.log("Prenom = " + prenom.value);
-    // console.log("Niveau = " +niveau.value);
-    // console.log("Biographie = " + bio.value);
+    console.log("Nom = " + nom.value);
+    console.log("Prenom = " + prenom.value);
+    console.log("Niveau = " +niveau.value);
+    console.log("Biographie = " + bio.value);
 
     localStorage.setItem("nom",nomSaisi)
     localStorage.setItem("prenom",prenomSaisi)
