@@ -1,4 +1,5 @@
-
+const API_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzOTQxODU0MiwiZXhwIjoxOTU0OTk0NTQyfQ.70q4LI1xBt_3AbU7ZecNtRZ_yL7YWQuqAPVbreQCTVg"
+const API_URL ="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/senAppn"
         
     
     const schoolForm = document.querySelector("form")
@@ -24,17 +25,12 @@
 schoolForm.addEventListener("submit",(e)=>{
     e.preventDefault()
     
-
     let nomSaisi=nom.value
     let prenomSaisi=prenom.value
     let niveauSaisi=niveau.value
     let bioSaisie=bio.value
 
     verifier()
-
-
-
-
 
     //creation objet etudiant
 let newApp={
@@ -48,9 +44,13 @@ let newApp={
     console.log(apprenantes.length)
     creerUneCarteApp(newApp)
 
-
-   
     
+    nom.value=""
+    prenom.value=""
+    niveau.value=""
+    bio.value=""
+
+
 
 })
    
@@ -74,8 +74,8 @@ let newApp={
                     <div class="col-md-8">
                         <div class="card-body">
                         <h5 class="card-title" id=${oldNom}>Nom:${apprenante.nomA}</h5>
-                        <h5 class="card-titl" id=${oldPrenom}>Prenom:${apprenante.prenomA}</h5>
-                        <h5 class="card-titl" id=${oldNiveau}>niveau:${apprenante.niveauA}</h5>
+                        <h5 class="card-tit" id=${oldPrenom}>Prenom:${apprenante.prenomA}</h5>
+                        <h5 class="card-titles" id=${oldNiveau}>niveau:${apprenante.niveauA}</h5>
                         <p class="card-text" id=${oldBio}>biographie:${apprenante.bioA}</p>
 
                         <button type="button" class="btn btn-outline-danger" id="${btnSuprimer}">Supprimer</button>
@@ -94,11 +94,12 @@ let newApp={
      const supprimerBtn=document.getElementById(btnSuprimer)
      const cartBtn=document.getElementById(btnCart)   
      const modifierBtn=document.getElementById(btnModifier)
+     console.log(modifierBtn);
 
-  const ancienNom=document.getElementById(oldNom)
-  const ancienPrenom=document.getElementById(oldPrenom)
-  const ancienNiveau=document.getElementById(oldNiveau)
-  const ancienBio=document.getElementById(oldBio)
+        const ancienNom=document.getElementById(oldNom)
+        const ancienPrenom=document.getElementById(oldPrenom)
+        const ancienNiveau=document.getElementById(oldNiveau)
+        const ancienBio=document.getElementById(oldBio)
 
 
     supprimerBtn.addEventListener("click",(e)=>{
@@ -109,47 +110,57 @@ let newApp={
     
 
     }) 
+
     modifierBtn.addEventListener("click",(e)=>{
         e.preventDefault()
-        alert("on est le")
-        let nomMod = document.createElement('input')
-        nomMod.setAttribute("placeholder", "nom*")
-        cartBtn.appendChild(nomMod)
-        cartBtn.appendChild(ancienNom)
+        //alert("on est le")
+        const Nom = cartBtn.querySelector(".card-title").textContent
+        
+        const nomNew=cartBtn.querySelector(".card-title")
        
+         const Prenom=cartBtn.querySelector(".card-tit").textContent
+         const PrenomNew=cartBtn.querySelector(".card-tit")
 
-        let prenomMod=document.createElement('input')
-        prenomMod.setAttribute("placeholder", "prenom*")
-        cartBtn.appendChild(prenomMod)
-        cartBtn.appendChild(ancienPrenom)
 
-        //  let niveauMod=document.createElement('select')
-        //  niveauMod.setAttribute("select*")
-        //  cartBtn.appendChild(ancienNiveau)
+         const Niveau=cartBtn.querySelector(".card-titles").textContent
+         const  niveauNew=cartBtn.querySelector(".card-tit")
 
-        let Biographie=document.createElement('textarea')
-       Biographie.setAttribute("placeholder", "texterea*")
-        cartBtn.appendChild(Biographie)
+         const Bio=cartBtn.querySelector(".card-text").textContent
+        const bioNiew=cartBtn.querySelector(".card-text")
 
-        cartBtn.appendChild(ancienBio)
-        
-        
-        
-        
-        
-        let cartMod=cartBtn
-        console.log(cartMod);
-        cartMod.replaceChild(nomMod,ancienNom)
-        // cartMod.replaceChild(prenomMod,ancienPrenom)
-        // cartMod.replaceChild(niveauMod,ancienNiveau)
-        // cartMod.replaceChild(Biographie,ancienBio)
 
+
+        //const NomNew = cartBtn.querySelector("#ancienNom")
+       
+        // const NiveauNew=cartBtn.getElementById(ancienNiveau)
+        
+       nom.value=Nom
+       prenom.value=Prenom
+       niveau.value=Niveau
+    bio.value=Bio
+
+        //apprenante.nomA =nom.value 
+
+        // apprenante.prenom=prenom.value
+        // apprenante.niveau=niveau.value
+        // apprenante.bio=bio.value
+
+        //nomNew.textContent = apprenante.nomA
+        // PrenomNew.textContent=apprenante.prenom
+        // NiveauNew.textContent= apprenante.niveau
+        // BioNiew.textContent= apprenante.bio
 
        
-        
-        // console.log(cartMod);
-
     }) 
+
+
+    let sauve=document.getElementById("sauvegarder")
+sauve.addEventListener("click",()=>{
+    
+       alert("voullez vous vraiment sauvegarder dans la base")
+})
+
+
 
 
    }  
@@ -224,3 +235,21 @@ function verifier() {
 
 
 
+
+
+// //ENVOYER LES DONNEES VERS SUPABASE
+    // fetch(API_URL, {
+    //     method: "POST",
+    //     headers: {
+    //     apikey: API_KEY,
+    //     "Content-Type": "application/json",
+    //     Prefer: "return=representation",
+    //     },
+    //     body: JSON.stringify(),
+    // })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //     ideeCreeAuNiveauAPI = data[0]
+    //     //AJOUT DE LA NOUVELLE IDEE AU NIVEAU DE LA PAGE
+    //    // creerUneCarte(ideeCreeAuNiveauAPI)
+       // })
