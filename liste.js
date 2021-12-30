@@ -45,7 +45,7 @@ function creerUneCarteApp (apprenante){
   const btnCart="btn_cart-" + apprenante.id
 
   
-  
+  console.log(btnDetail);
   listeApp.insertAdjacentHTML(  "afterend",`
   <div class="card mb-3" style="max-width: 540px;" id="${btnCart}">
               <div class="row g-0">
@@ -60,7 +60,7 @@ function creerUneCarteApp (apprenante){
                   <p class="card-text" id=${apprenante.bioA}>biographie:${apprenante.bioA}</p>
 
                  
-                  <button type="button" class="btn btn-outline-warning" id="${btnDetail}">detail</button>
+                  <button type="submit" class="btn btn-outline-warning" id="${btnDetail}">detail</button>
                   </div>
                   
               </div>
@@ -71,4 +71,12 @@ function creerUneCarteApp (apprenante){
 
 `)
 
+const detail=document.getElementById(btnDetail)
+detail.addEventListener("click",(e)=>{
+console.log(detail);
+window.location.href="detail.html"
+
+})
 }
+
+
