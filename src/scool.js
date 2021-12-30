@@ -13,6 +13,8 @@ const API_URL ="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/senAppn"
     const bio=document.getElementById("bio")
     const ajouter=document.getElementById("ajouter")
 
+    
+
    
     let nomSaisi=nom.value
     let prenomSaisi=prenom.value
@@ -110,9 +112,10 @@ let newApp={
     
 
     }) 
-
+    
     modifierBtn.addEventListener("click",(e)=>{
         e.preventDefault()
+        
         //alert("on est le")
         const Nom = cartBtn.querySelector(".card-title").textContent
         
@@ -120,7 +123,7 @@ let newApp={
        
          const Prenom=cartBtn.querySelector(".card-tit").textContent
          const PrenomNew=cartBtn.querySelector(".card-tit")
-
+         APPRENANTS
 
          const Niveau=cartBtn.querySelector(".card-titles").textContent
          const  niveauNew=cartBtn.querySelector(".card-tit")
@@ -130,43 +133,68 @@ let newApp={
 
 
 
-        //const NomNew = cartBtn.querySelector("#ancienNom")
-       
-        // const NiveauNew=cartBtn.getElementById(ancienNiveau)
         
        nom.value=Nom
        prenom.value=Prenom
        niveau.value=Niveau
-    bio.value=Bio
+       bio.value=Bio
 
-        //apprenante.nomA =nom.value 
+       const bouttonModifier=document.getElementById("modifier")
+    
+        console.log(bouttonModifier);
 
-        // apprenante.prenom=prenom.value
-        // apprenante.niveau=niveau.value
-        // apprenante.bio=bio.value
+       bouttonModifier.addEventListener("click",(e)=>{
+           e.preventDefault()
+           alert("je suis laaa")
+        // bouttonModifier.classList.add("cache")
+        // ajouter.classList.remove("cache")
 
-        //nomNew.textContent = apprenante.nomA
-        // PrenomNew.textContent=apprenante.prenom
-        // NiveauNew.textContent= apprenante.niveau
-        // BioNiew.textContent= apprenante.bio
+        apprenante.nomA=nom.value
+        apprenante.prenomA=preAPPRENANTSnom.value
+        apprenante.niveauA=niveau.value
+        apprenante.bioA=bio.value
 
+        Nom.textContent= apprenante.nomA
+        Prenom.textContent= apprenante.prenomA
+        Niveau.textContent=apprenante.niveauA
+        Bio.textContent= apprenante.bioA
+        
+        console.log(apprenante);
+
+        nom.value = Nom.textContent
+
+       })
        
     }) 
-
-
-    let sauve=document.getElementById("sauvegarder")
-sauve.addEventListener("click",()=>{
-    
-       alert("voullez vous vraiment sauvegarder dans la base")
-})
-
-
-
+   
 
    }  
 
+  
+ sauvegarder=document.getElementById("sauv")
+  
+      sauvegarder.addEventListener("click",(e)=>{
+         e.preventDefault()
+       alert("voullez vous vraiment sauvegarder dans la base")
+           console.log(APPRENANTS);
 
-
+    
+  //ENVOYER LES DONNEES VERS SUPABASE
+  fetch(API_URL,{
+     method: "POST",
+      headers: {
+      apikey: API_KEY,
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic2VydmljZV9yb2xlIiwiaWF0IjoxNjM5NDE4NTQyLCJleHAiOjE5NTQ5OTQ1NDJ9.eCHBLBMBj6Dw21vQQX4cYO_4jQqB2sXaqNAECRqL2C0",
+      "Content-Type": "application/json",
+      Prefer: "return=representation",
+      },
+      body: JSON.stringify(APPRENANTS),
+  })
+ 
+        
+        
+     })
+ 
 
 function verifier() {
 
@@ -235,21 +263,3 @@ function verifier() {
 
 
 
-
-
-// //ENVOYER LES DONNEES VERS SUPABASE
-    // fetch(API_URL, {
-    //     method: "POST",
-    //     headers: {
-    //     apikey: API_KEY,
-    //     "Content-Type": "application/json",
-    //     Prefer: "return=representation",
-    //     },
-    //     body: JSON.stringify(),
-    // })
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //     ideeCreeAuNiveauAPI = data[0]
-    //     //AJOUT DE LA NOUVELLE IDEE AU NIVEAU DE LA PAGE
-    //    // creerUneCarte(ideeCreeAuNiveauAPI)
-       // })
