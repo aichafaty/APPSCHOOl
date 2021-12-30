@@ -6,7 +6,7 @@ const API_URL ="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/senAppn"
     const apprenantes=document.getElementById("apprenantes")
     const nom=document.getElementById("nom")
     //CREATION DU TABLEAU DE D'APPRENAT
-    const APPRENANTS =[]
+    const APPRENANTS =  []
     
     const prenom=document.getElementById("prenom")
     const niveau=document.getElementById("niveau")
@@ -57,7 +57,7 @@ let newApp={
 })
    
 
-    const creerUneCarteApp = (apprenante) => {
+    const creerUneCarteApp = (apprenante,index) => {
         const btnSuprimer = "btn_supprimer-" + apprenante.id
         const btnModifier = "btn_modifier-" + apprenante.id
         const btnCart="btn_cart-" + apprenante.id
@@ -103,12 +103,13 @@ let newApp={
         const ancienNiveau=document.getElementById(oldNiveau)
         const ancienBio=document.getElementById(oldBio)
 
-
+        
     supprimerBtn.addEventListener("click",(e)=>{
         e.preventDefault()
-        
+        console.log(APPRENANTS.splice);
        let carte=cartBtn
         carte.remove()
+       // APPRENANTS.splice(index,1)
     
 
     }) 
@@ -148,7 +149,7 @@ let newApp={
            alert("je suis laaa")
         // bouttonModifier.classList.add("cache")
         // ajouter.classList.remove("cache")
-
+        //apprenante={}
         apprenante.nomA=nom.value
         apprenante.prenomA=preAPPRENANTSnom.value
         apprenante.niveauA=niveau.value
@@ -190,9 +191,15 @@ let newApp={
       },
       body: JSON.stringify(APPRENANTS),
   })
- 
+   
+       
         
-        
+     })
+
+
+     const liste =document.getElementById("liste")
+     liste.addEventListener("click",(e)=>{
+    window.location.href="listeApp.html"
      })
  
 
