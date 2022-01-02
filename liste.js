@@ -45,10 +45,14 @@ function creerUneCarteApp (apprenante){
   const btnCart="btn_cart-" + apprenante.id
 
   
-  console.log(btnDetail);
+  
   listeApp.insertAdjacentHTML(  "afterend",`
+
+  <div class="container">
+  <div class="col-12">
   <div class="card mb-3" style="max-width: 540px;" id="${btnCart}">
-              <div class="row g-0">
+            
+              <div class="row ">
               <div class="col-md-4">
                   <img src="src/img/img1.png" class="img-fluid rounded-start" alt="...">
               </div>
@@ -59,21 +63,25 @@ function creerUneCarteApp (apprenante){
                   <h5 class="card-titles" id=${apprenante.niveauA}>niveau:${apprenante.niveauA}</h5>
                   <p class="card-text" id=${apprenante.bioA}>biographie:${apprenante.bioA}</p>
 
-                 
-                  <button type="submit" class="btn btn-outline-warning" id="${btnDetail}">detail</button>
+                  <button type="submit" class="btn btn-outline-warning" id="${btnDetail}">detail</button> 
+                  
                   </div>
                   
               </div>
               </div>
               </div>
-
-             
+              </div>
+              </div> 
 
 `)
-
+ 
 const detail=document.getElementById(btnDetail)
 detail.addEventListener("click",(e)=>{
+  let getid=btnDetail
 console.log(detail);
+console.log(window.location.pathname);
+console.log(getid.substring(11));
+localStorage.setItem("identifiantDetail",getid.substring(11))
 window.location.href="detail.html"
 
 })

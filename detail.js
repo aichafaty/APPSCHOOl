@@ -5,7 +5,8 @@ const API_URL ="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/senAppn"
 
 window.addEventListener("DOMContentLoaded", (event) => {
     //RECUPERATION DES DONNEES VIA API
-    fetch(API_URL, {
+    
+    fetch(API_URL+"?id=eq."+localStorage.getItem("identifiantDetail"), {
       headers: {
         apikey: API_KEY,
       },
@@ -62,7 +63,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
                         <progress id="file" max="100" value="50" class="barre"> ${apprenante.competences5_Value}</progress></label>
                     </div>
           
-                
+                         
                 </div>
                 
             </div>
