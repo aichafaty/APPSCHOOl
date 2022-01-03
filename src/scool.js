@@ -40,6 +40,7 @@ let newApp={
     prenomA:prenomSaisi,
     niveauA:niveauSaisi,
     bioA:bioSaisie,
+    //creerAjout:Date.now()
 }
 
     APPRENANTS.push(newApp)
@@ -59,7 +60,9 @@ let newApp={
 
     const creerUneCarteApp = (apprenante,index) => {
         const btnSuprimer = "btn_supprimer-" + apprenante.id
+        //const btnModifier = "btn_modifier-" + apprenante.creerAjout
         const btnModifier = "btn_modifier-" + apprenante.id
+        //const btnCart="btn_cart-" + apprenante.creerAjout
         const btnCart="btn_cart-" + apprenante.id
 
         const oldNom="identifiant-" + apprenante.id
@@ -68,12 +71,12 @@ let newApp={
         const oldBio="identifiant-" + apprenante.id
         
         apprenantes.insertAdjacentHTML(  "afterend",`
-        <div class="card mb-3" style="max-width: 540px;" id="${btnCart}">
+        <div class="card mb-3 d-flex " style="max-width: 900px;" id="${btnCart}">
                     <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="src/img/img1.png" class="img-fluid rounded-start" alt="...">
+                        <img src="src/img/ai.png" class="img-fluid rounded-start" alt="..." style="border:radius">
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8">               
                         <div class="card-body">
                         <h5 class="card-title" id=${oldNom}>Nom:${apprenante.nomA}</h5>
                         <h5 class="card-tit" id=${oldPrenom}>Prenom:${apprenante.prenomA}</h5>
@@ -81,7 +84,7 @@ let newApp={
                         <p class="card-text" id=${oldBio}>biographie:${apprenante.bioA}</p>
 
                         <button type="button" class="btn btn-outline-danger" id="${btnSuprimer}">Supprimer</button>
-                        <button type="button" class="btn btn-outline-warning" id="${btnModifier}">Modifier</button>
+                        <button type="button" class="btn btn-outline-dark" id="${btnModifier}">Modifier</button>
                         </div>
                         
                     </div>
@@ -124,7 +127,7 @@ let newApp={
        
          const Prenom=cartBtn.querySelector(".card-tit").textContent
          const PrenomNew=cartBtn.querySelector(".card-tit")
-         APPRENANTS
+         
 
          const Niveau=cartBtn.querySelector(".card-titles").textContent
          const  niveauNew=cartBtn.querySelector(".card-tit")
@@ -151,7 +154,7 @@ let newApp={
         // ajouter.classList.remove("cache")
         //apprenante={}
         apprenante.nomA=nom.value
-        apprenante.prenomA=preAPPRENANTSnom.value
+        apprenante.prenomA=prenom.value
         apprenante.niveauA=niveau.value
         apprenante.bioA=bio.value
 
@@ -164,7 +167,25 @@ let newApp={
 
         nom.value = Nom.textContent
 
-       })
+
+    //     APPRENANTS.forEach(apprenantes => {
+    //         if (btnModifier.substring(13) == apprenantes.creerAjout) {
+                
+    //             let modification={
+    //                 nomM:nomSaisi,
+    //                 prenomM:prenomSaisi,
+    //                 niveauM:niveauSaisi,
+    //                 bioAM:bioSaisie,
+    //                 creerAjout:Date.now()
+    //             }
+                
+    //             cartBtn.style.display="none"
+    //             creerUneCarteApp(modification)
+                
+
+    //         }
+    //     });    
+      })
        
     }) 
    
@@ -266,7 +287,89 @@ function verifier() {
 
 }
 
-
+// updateBtn.addEventListener("click",()=>{
+//     saveCollectionContainer.classList.add("d-none")
+//     APPRENANTS.forEach((apprenantItem)=>{
+//         if (idUpdate.substring(7) == apprenantItem.index) {
+//             soumissionBtn.style.display="block"
+//             let editInputPrenom = document.getElementById(idPrenom) 
+//             let editInputNom = document.getElementById(idNom) 
+//             let editInputBio = document.getElementById(idBio) 
+//             let editInputMaquette = document.getElementById(idMaquette) 
+//             let editInputBdd = document.getElementById(idBdd) 
+//             let editInputInterface = document.getElementById(idInterface) 
+//             let editInputBackend = document.getElementById(idBackend) 
+//             let modifierApprenantForm = document.getElementById(idModifierApprenantForm)
+//             editInputPrenom.removeAttribute('disabled')
+//             editInputNom.removeAttribute('disabled')
+//             editInputNiveau.removeAttribute('disabled')
+//             editInputBio.removeAttribute('disabled')
+//             editInputMaquette.removeAttribute('disabled')
+//             editInputInterface.removeAttribute('disabled')
+//             editInputBdd.removeAttribute('disabled')
+//             editInputBackend.removeAttribute('disabled')
+//             editInputPrenom.focus()
+//             modifierApprenantForm.addEventListener('submit',(e)=>{
+//             e.preventDefault()
+//             if (editInputPrenom.value.trim().length == 0) {
+//               editInputPrenom.classList.add("invalid")
+//               return
+//             }
+//             if (editInputNom.value.trim().length == 0) {
+//               editInputNom.classList.add("invalid")
+//               return
+//             }
+  
+//             if (editInputBio.value.trim().length <8) {
+//                 editInputBio.classList.add("invalid")
+//                 return
+//             }
+//             if (isNaN(editInputMaquette.value) || editInputMaquette.value < 0 ||  editInputMaquette.value >10 || editInputMaquette.value=="") {
+//                 editInputMaquette.classList.add("invalid")
+//                 return
+//             }
+//             if (isNaN(editInputInterface.value) || editInputInterface.value < 0 || editInputInterface.value >10 || editInputInterface.value=="") {
+//               editInputInterface.classList.add("invalid")
+//                 return
+//             }
+//             if (isNaN(editInputBdd.value) || editInputBdd.value < 0 || editInputBdd.value >10 || editInputBdd.value=="") {
+//               editInputBdd.classList.add("invalid")
+//             }
+//             if (isNaN(editInputBackend.value) || editInputBackend.value < 0 || editInputBackend.value >10 || editInputBackend.value=="") {
+//               editInputBackend.classList.add("invalid")
+//                 return 
+//             }
+//             // CREATION DE L'OBJET APPRENANT MODIFIE
+//             let updateApprenant = {
+//               index: Date.now(),
+//               prenom : editInputPrenom.value,
+//               nom : editInputNom.value,
+//               niveau : editInputNiveau.value,
+//               bio : editInputBio.value,
+//               photo : imgPreview.src,
+//               maquettage : editInputMaquette.value,
+//               interface : editInputInterface.value,
+//               bdd: editInputBdd.value,
+//               backend: editInputBackend.value
+//             }
+//             // AFFECTATION  DU NOUVEL APPRENANT
+//           apprenantItem = updateApprenant
+//           //  DESACTIVATION CHAMP
+//           editInputPrenom.setAttribute('disabled',true)
+//           editInputNom.setAttribute('disabled',true)
+//           editInputNiveau.setAttribute('disabled',true)
+//           editInputBio.setAttribute('disabled',true)
+//           editInputMaquette.setAttribute('disabled',true)
+//           editInputInterface.setAttribute('disabled',true)
+//           editInputBdd.setAttribute('disabled',true)
+//           editInputBackend.setAttribute('disabled',true)
+//           soumissionBtn.style.display="none"
+//           })
+//         }
+        
+//     })
+//     saveCollectionContainer.classList.remove("d-none")
+// })
 
 
 

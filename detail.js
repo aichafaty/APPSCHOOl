@@ -28,10 +28,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
     const detailler=document.getElementById("detailler")
   detailler.insertAdjacentHTML(  "afterend",`
   
-  <div class="card mb-3" style="max-width: 540px;" id="${btnCart}">
+  <div class="card mb-3" style="max-width: 900px;" id="${btnCart}">
             <div class="row g-0">
             <div class="col-md-4">
-                <img src="src/img/img1.png" class="img-fluid rounded-start" alt="...">
+                <img src="src/img/ai.png" class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -43,7 +43,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 <div class=" rom" >
                     <div  class="gauche">
                       <label for="file" class="libele"> :${apprenante.competences1}<br>
-                      <progress id="file" max="100" value="90" class="barre">${apprenante.competences1_Value} </progress></label><br>
+                      <progress id="file" max="200" value="90" class="barre">${apprenante.competences1_Value} </progress></label><br>
 
                       <label for="file " class=" libele">${apprenante.competences2} <br>
                       <progress id="file" max="100" value="80"class="barre"> ${apprenante.competences2_Value} </progress></label>

@@ -48,13 +48,13 @@ function creerUneCarteApp (apprenante){
   
   listeApp.insertAdjacentHTML(  "afterend",`
 
-  <div class="container">
+  <div class="container" >
   <div class="col-12">
-  <div class="card mb-3" style="max-width: 540px;" id="${btnCart}">
+  <div class="card mb-3" style="max-width: 800px;box-shadow-lg:1 1rem 3rem rgba($black, .175);" id="${btnCart}">
             
               <div class="row ">
               <div class="col-md-4">
-                  <img src="src/img/img1.png" class="img-fluid rounded-start" alt="...">
+                  <img src="src/img/chou.png" class="img-fluid rounded-start" alt="...">
               </div>
               <div class="col-md-8">
                   <div class="card-body">
