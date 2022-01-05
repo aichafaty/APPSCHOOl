@@ -1,12 +1,17 @@
+// const API_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzOTQxODU0MiwiZXhwIjoxOTU0OTk0NTQyfQ.70q4LI1xBt_3AbU7ZecNtRZ_yL7YWQuqAPVbreQCTVg"
+// const API_URL ="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/senAppn"
+
 const API_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzOTQxODU0MiwiZXhwIjoxOTU0OTk0NTQyfQ.70q4LI1xBt_3AbU7ZecNtRZ_yL7YWQuqAPVbreQCTVg"
-const API_URL ="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/senAppn"
+//const API_URL="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/competenceTab"
+
+const api_URL="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/apprenantTab"
 
 
 
 window.addEventListener("DOMContentLoaded", (event) => {
     //RECUPERATION DES DONNEES VIA API
     
-    fetch(API_URL+"?id=eq."+localStorage.getItem("identifiantDetail"), {
+    fetch(api_URL+"?id=eq."+localStorage.getItem("identifiantDetail"), {
       headers: {
         apikey: API_KEY,
       },
@@ -16,7 +21,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     .then((APPRENANTS) => {
       APPRENANTS.forEach((i) => {
         creerUneCarteApp(i)
-      })
+        
     })
   })
 
@@ -25,7 +30,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   
     
     const btnCart="btn_cart-" + apprenante.id
-    const detailler=document.getElementById("detailler")
+    const detailler=document.getElementById("det")
   detailler.insertAdjacentHTML(  "afterend",`
   
   <div class="card mb-3" style="max-width: 900px;" id="${btnCart}">
@@ -40,32 +45,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 <h5 class="card-titles" id=${apprenante.niveauA}>niveau:${apprenante.niveauA}</h5>
                 <p class="card-text" id=${apprenante.bioA}>biographie:${apprenante.bioA}</p>
           
-                <div class=" rom" >
-                    <div  class="gauche">
-                      <label for="file" class="libele"> :${apprenante.competences1}<br>
-                      <progress id="file" max="200" value="90" class="barre">${apprenante.competences1_Value} </progress></label><br>
-
-                      <label for="file " class=" libele">${apprenante.competences2} <br>
-                      <progress id="file" max="100" value="80"class="barre"> ${apprenante.competences2_Value} </progress></label>
-
-                    </div>
-                      <div class="droite ">
-                        <label for="file" class=" libele">${apprenante.competences3}<br>
-                        <progress id="file" max="100" value="70" class="barre"> ${apprenante.competences3_Value}</progress></label> <br>
-                        <label for="file" class=" libele">${apprenante.competences4}<br>
-          
-                        <progress id="file" max="100" value="50" class="barre">${apprenante.competences4_Value} </progress></label>
-                    </div>
-                    <div class="droite ">
-                        
-                        <label for="file" class=" libele">${apprenante.competences5}<br>
-          
-                        <progress id="file" max="100" value="50" class="barre"> ${apprenante.competences5_Value}</progress></label>
-                    </div>
-          
-                         
-                </div>
-                
             </div>
             </div>
             </div>
@@ -74,3 +53,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 `)
   }
+
+})
+
+
+  

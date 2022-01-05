@@ -1,5 +1,10 @@
+// const API_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzOTQxODU0MiwiZXhwIjoxOTU0OTk0NTQyfQ.70q4LI1xBt_3AbU7ZecNtRZ_yL7YWQuqAPVbreQCTVg"
+// const API_URL ="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/senAppn"
+
 const API_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzOTQxODU0MiwiZXhwIjoxOTU0OTk0NTQyfQ.70q4LI1xBt_3AbU7ZecNtRZ_yL7YWQuqAPVbreQCTVg"
-const API_URL ="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/senAppn"
+
+const api_URL="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/apprenantTab"
+
         
     
     const schoolForm = document.querySelector("form")
@@ -40,6 +45,7 @@ let newApp={
     prenomA:prenomSaisi,
     niveauA:niveauSaisi,
     bioA:bioSaisie,
+
     //creerAjout:Date.now()
 }
 
@@ -202,11 +208,12 @@ let newApp={
 
     
   //ENVOYER LES DONNEES VERS SUPABASE
-  fetch(API_URL,{
+  fetch(api_URL,{
      method: "POST",
       headers: {
       apikey: API_KEY,
       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic2VydmljZV9yb2xlIiwiaWF0IjoxNjM5NDE4NTQyLCJleHAiOjE5NTQ5OTQ1NDJ9.eCHBLBMBj6Dw21vQQX4cYO_4jQqB2sXaqNAECRqL2C0",
+   
       "Content-Type": "application/json",
       Prefer: "return=representation",
       },

@@ -1,5 +1,12 @@
+// const API_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzOTQxODU0MiwiZXhwIjoxOTU0OTk0NTQyfQ.70q4LI1xBt_3AbU7ZecNtRZ_yL7YWQuqAPVbreQCTVg"
+// const API_URL ="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/senAppn"
+
+
 const API_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzOTQxODU0MiwiZXhwIjoxOTU0OTk0NTQyfQ.70q4LI1xBt_3AbU7ZecNtRZ_yL7YWQuqAPVbreQCTVg"
-const API_URL ="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/senAppn"
+
+const api_URL="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/apprenantTab"
+
+
 
 // fetch(API_URL,"?select=*",{
 //     method: "GET",
@@ -23,7 +30,7 @@ const API_URL ="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/senAppn"
 
 window.addEventListener("DOMContentLoaded", (event) => {
   //RECUPERATION DES DONNEES VIA API
-  fetch(API_URL, {
+  fetch(api_URL, {
     headers: {
       apikey: API_KEY,
     },
@@ -85,6 +92,17 @@ localStorage.setItem("identifiantDetail",getid.substring(11))
 window.location.href="detail.html"
 
 })
+
+
+
+
+// let detail = document.getElementById(apprenante.id)
+//     detail.addEventListener('click', function(){
+//       alert("detaillllllll")
+//       localStorage.setItem('btnId', apprenante.id)
+      
+//       window.location.href = "detail.html"
+//     })
+
+
 }
-
-
