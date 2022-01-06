@@ -28,7 +28,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   function creerUneCarteApp (apprenante){
   
-    
+    const ajouterC="btn_cart-" + apprenante.id
     const btnCart="btn_cart-" + apprenante.id
     const detailler=document.getElementById("det")
   detailler.insertAdjacentHTML(  "afterend",`
@@ -44,6 +44,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 <h5 class="card-tit" id=${apprenante.prenomA}>Prenom:${apprenante.prenomA}</h5>
                 <h5 class="card-titles" id=${apprenante.niveauA}>niveau:${apprenante.niveauA}</h5>
                 <p class="card-text" id=${apprenante.bioA}>biographie:${apprenante.bioA}</p>
+
+                <button type="submit" class="btn btn-outline-warning" id=${ajouterC} >AjouterComp</button> 
           
             </div>
             </div>
@@ -52,8 +54,40 @@ window.addEventListener("DOMContentLoaded", (event) => {
              
 
 `)
-  }
 
+const btnAjoutCompetences= document.getElementById(ajouterC)
+
+  btnAjoutCompetences.addEventListener("click",()=>{
+    alert("je suis laaaaaaa")
+    let getIdentifiant=localStorage.getItem("identifiantDetail")
+    console.log(getIdentifiant);
+
+     //creation objet COMPETENCES
+// let newC={
+//   maquetter:nomSaisi,
+//   interfaceReal:prenomSaisi,
+//   creerBase:niveauSaisi,
+//   id_ApprenantTab:bioSaisie,
+
+//   //creerAjout:Date.now()
+// }
+
+//   APPRENANTS.push(newApp)
+//   console.log(apprenantes.length)
+//   creerUneCarteApp(newApp)
+
+  
+//   nom.value=""
+//   prenom.value=""
+//   niveau.value=""
+//   bio.value=""
+
+
+
+  })
+  }
+  
+  
 })
 
 
