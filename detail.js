@@ -2,7 +2,7 @@
 // const API_URL ="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/senAppn"
 
 const API_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzOTQxODU0MiwiZXhwIjoxOTU0OTk0NTQyfQ.70q4LI1xBt_3AbU7ZecNtRZ_yL7YWQuqAPVbreQCTVg"
-//const API_URL="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/competenceTab"
+const API_URL="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/competenceTab"
 
 const api_URL="https://jvbxwslfbvuerjamynbm.supabase.co/rest/v1/apprenantTab"
 
@@ -55,33 +55,37 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 `)
 
-const btnAjoutCompetences= document.getElementById(ajouterC)
+const ValiderCompetence= document.getElementById("V_Competence")
 
-  btnAjoutCompetences.addEventListener("click",()=>{
+ValiderCompetence.addEventListener("click",()=>{
     alert("je suis laaaaaaa")
     let getIdentifiant=localStorage.getItem("identifiantDetail")
     console.log(getIdentifiant);
 
      //creation objet COMPETENCES
-// let newC={
-//   maquetter:nomSaisi,
-//   interfaceReal:prenomSaisi,
-//   creerBase:niveauSaisi,
-//   id_ApprenantTab:bioSaisie,
+let newC={
+  maquetter:value1.value,
+  interfaceReal:value2.value,
+  creerBase:value3.value,
+  devAppWeb:value4.value,
+  elaborerEcommerce:value5.value,
 
-//   //creerAjout:Date.now()
-// }
-
-//   APPRENANTS.push(newApp)
-//   console.log(apprenantes.length)
-//   creerUneCarteApp(newApp)
+  id_ApprenantTab:getIdentifiant,
 
   
-//   nom.value=""
-//   prenom.value=""
-//   niveau.value=""
-//   bio.value=""
-
+}
+ //ENVOYER LES DONNEES VERS SUPABASE
+ fetch(API_URL, {
+  method: "POST",
+  headers: {
+    apikey: API_KEY,
+    "Content-Type": "application/json",
+    Prefer: "return=representation",
+  },
+  body: JSON.stringify(newC),
+ 
+})
+console.log(newC);
 
 
   })

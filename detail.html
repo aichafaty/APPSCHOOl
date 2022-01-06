@@ -25,7 +25,16 @@
 
        </div>
 
-       <form id="addTask">
+       <div id="pageCompetence">
+       <section id="JPO" style="background-color: white; padding: 10rem;"> 
+
+        <div class="row close" style="float: right; margin-right: 5px;">
+            <button class="JPO_close">
+                <img src="img/cancel.png" height="20px" alt="">
+            </button>
+        </div>
+       
+       <form method="post"  id="formCompetence">
         <div class="row " style="border: 1px solid black; width: 100%;">
             <div class="col-7">
                 <label for="value1">
@@ -126,21 +135,29 @@
             </div>
         </div>
        
-        
-      
-        
-
-       
-        
-
-        
-
-
-
         <button type="button" class="btn btn-outline-warning" id="V_Competence">Valider</button>
         
         
     </form>
+    </div>
+    </section>
        <script src="detail.js" ></script>
+
+
+       <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/gh/vast-engineering/jquery-popup-overlay@2/jquery.popupoverlay.min.js"></script> -->
+   
+       <!-- <script>
+           $(document).ready(function() {
+       
+             // Initialize the plugin
+             $('#JPO').popup();
+       
+             // Set default `pagecontainer` for all popups (optional, but recommended for screen readers and iOS*)
+             $.fn.popup.defaults.pagecontainer = '#page'
+           });
+   
+         </script> -->
+   
 </body>
 </html>

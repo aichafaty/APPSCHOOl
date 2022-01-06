@@ -46,7 +46,7 @@ let newApp={
     niveauA:niveauSaisi,
     bioA:bioSaisie,
 
-    //creerAjout:Date.now()
+    creerAjout:Date.now()
 }
 
     APPRENANTS.push(newApp)
@@ -65,11 +65,11 @@ let newApp={
    
 
     const creerUneCarteApp = (apprenante,index) => {
-        const btnSuprimer = "btn_supprimer-" + apprenante.id
-        //const btnModifier = "btn_modifier-" + apprenante.creerAjout
-        const btnModifier = "btn_modifier-" + apprenante.id
-        //const btnCart="btn_cart-" + apprenante.creerAjout
-        const btnCart="btn_cart-" + apprenante.id
+       const btnSuprimer = "btn_supprimer-" + apprenante.id
+        const btnModifier = "btn_modifier-" + apprenante.creerAjout
+        //const btnModifier = "btn_modifier-" + apprenante.id
+        const btnCart="btn_cart-" + apprenante.creerAjout
+        //const btnCart="btn_cart-" + apprenante.id
 
         const oldNom="identifiant-" + apprenante.id
         const oldPrenom="identifiant-" + apprenante.id
@@ -105,7 +105,7 @@ let newApp={
      const supprimerBtn=document.getElementById(btnSuprimer)
      const cartBtn=document.getElementById(btnCart)   
      const modifierBtn=document.getElementById(btnModifier)
-     console.log(modifierBtn);
+     console.log(cartBtn);
 
         const ancienNom=document.getElementById(oldNom)
         const ancienPrenom=document.getElementById(oldPrenom)
@@ -156,9 +156,9 @@ let newApp={
        bouttonModifier.addEventListener("click",(e)=>{
            e.preventDefault()
            alert("je suis laaa")
-        // bouttonModifier.classList.add("cache")
-        // ajouter.classList.remove("cache")
-        //apprenante={}
+        bouttonModifier.classList.add("cache")
+        ajouter.classList.remove("cache")
+        apprenante={}
         apprenante.nomA=nom.value
         apprenante.prenomA=prenom.value
         apprenante.niveauA=niveau.value
@@ -174,23 +174,27 @@ let newApp={
         nom.value = Nom.textContent
 
 
-    //     APPRENANTS.forEach(apprenantes => {
-    //         if (btnModifier.substring(13) == apprenantes.creerAjout) {
+        APPRENANTS.forEach(apprenantes => {
+            if (btnModifier.substring(13) == apprenantes.creerAjout) {
                 
-    //             let modification={
-    //                 nomM:nomSaisi,
-    //                 prenomM:prenomSaisi,
-    //                 niveauM:niveauSaisi,
-    //                 bioAM:bioSaisie,
-    //                 creerAjout:Date.now()
-    //             }
+                let modification={
+                    nomM:nomSaisi,
+                    prenomM:prenomSaisi,
+                    niveauM:niveauSaisi,
+                    bioAM:bioSaisie,
+                    creerAjout:Date.now()
+                }
                 
-    //             cartBtn.style.display="none"
-    //             creerUneCarteApp(modification)
+               
+                
+                 
+                
+                //APPRENANTS.push(modification)
+                creerUneCarteApp(modification)
                 
 
-    //         }
-    //     });    
+            }
+        });    
       })
        
     }) 
