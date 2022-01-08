@@ -46,7 +46,7 @@ let newApp={
     niveauA:niveauSaisi,
     bioA:bioSaisie,
 
-    creerAjout:Date.now()
+    //creerAjout:Date.now()
 }
 
     APPRENANTS.push(newApp)
@@ -217,11 +217,10 @@ let newApp={
       headers: {
       apikey: API_KEY,
       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic2VydmljZV9yb2xlIiwiaWF0IjoxNjM5NDE4NTQyLCJleHAiOjE5NTQ5OTQ1NDJ9.eCHBLBMBj6Dw21vQQX4cYO_4jQqB2sXaqNAECRqL2C0",
-   
-      "Content-Type": "application/json",
+        "Content-Type": "application/json",
       Prefer: "return=representation",
       },
-      body: JSON.stringify(APPRENANTS),
+      body: JSON.stringify(APPRENANTS)
   })
    
        
